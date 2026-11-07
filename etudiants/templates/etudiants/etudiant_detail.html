@@ -1,0 +1,46 @@
+{% extends 'etudiants/base.html' %} {% block title %}Fiche de l'étudiant{% endblock %} {% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="mb-4">
+      <h1 class="h2 fw-bold">Fiche de l'étudiant</h1>
+
+      <p class="text-secondary">Informations personnelles et académiques.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-body p-4 p-md-5">
+        <h2 class="h4 fw-bold mb-4">{{ etudiant.prenom }} {{ etudiant.nom }}</h2>
+
+        <dl class="row mb-0">
+          <dt class="col-sm-4">Nom</dt>
+          <dd class="col-sm-8">{{ etudiant.nom }}</dd>
+
+          <dt class="col-sm-4">Prénom</dt>
+          <dd class="col-sm-8">{{ etudiant.prenom }}</dd>
+
+          <dt class="col-sm-4">Programme</dt>
+          <dd class="col-sm-8">{{ etudiant.programme }}</dd>
+
+          <dt class="col-sm-4">Remarque</dt>
+          <dd class="col-sm-8">{{ etudiant.remarque|default:"Aucune remarque" }}</dd>
+
+          <dt class="col-sm-4">Date d'inscription</dt>
+          <dd class="col-sm-8">{{ etudiant.date_inscription|date:"d/m/Y" }}</dd>
+        </dl>
+
+        <hr class="my-4" />
+
+        <div class="d-flex flex-wrap gap-2">
+          <a href="{% url 'etudiant_update' etudiant.pk %}" class="btn btn-primary"> Modifier </a>
+
+          <a href="{% url 'etudiant_delete' etudiant.pk %}" class="btn btn-outline-danger"> Supprimer </a>
+
+          <a href="{% url 'liste_etudiants' %}" class="btn btn-outline-secondary"> Retour à la liste </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

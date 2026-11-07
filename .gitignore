@@ -1,0 +1,23 @@
+
+# Environnement virtuel
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Base de données locale
+db.sqlite3
+
+# Configuration sensible
+.env
+.env.*
+
+# Éditeur
+.vscode/
+
+# Fichiers temporaires
+*.log
+.DS_Store
+Thumbs.db
